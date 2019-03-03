@@ -36,4 +36,14 @@ public class CidadeResource {
 		Page<Cidade> list = service.findCapitalOrderName(capital, page, linesPerPage, orderBy, direction);
 		return ResponseEntity.ok().body(list);
 	}
+	
+	@RequestMapping(value="/questaoQuatro", method=RequestMethod.GET)
+	public ResponseEntity<Page<Cidade>> findByUf(
+			@RequestParam(value="page", defaultValue="0") Integer page, 
+			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage,
+			@RequestParam(value="orderBy", defaultValue="name") String orderBy, 
+			@RequestParam(value="direction", defaultValue="ASC") String direction) {
+		Page<Cidade> list = service.findByUf(page, linesPerPage, orderBy, direction);
+		return ResponseEntity.ok().body(list);
+	}
 }

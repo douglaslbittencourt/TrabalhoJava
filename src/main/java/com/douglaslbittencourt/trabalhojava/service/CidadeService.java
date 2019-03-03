@@ -35,4 +35,15 @@ public class CidadeService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findByCapital(capital, pageRequest);
 	}
+	
+	/**
+	 * Retorna somente as cidades que são capitais ordenadas por nome
+	 * 
+	 * @param boolean
+	 * @return List<Cidade>
+	 */
+	public Page<Cidade> findByUf( Integer page, Integer linesPerPage, String orderBy, String direction) {
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		return repo.findByUf(pageRequest);
+	}
 }
